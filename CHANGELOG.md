@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+## [3.0.0a1] - 2017-10-03
 ### Added
 - Support for deploying compute nodes to an ARM Virtual Network with Batch
 Service Batch accounts (#126)
@@ -49,7 +50,13 @@ file, which is then applied to `batch`, `keyvault` and/or `management`
 section. Please see the credentials configuration guide for more information.
 - `docker_image` is now preferred over the deprecated `image` property in
 the `task` array in the jobs configuration file
+- `gpu` and `infiniband` under the jobs configuration are now optional. GPU
+and/or RDMA capable compute nodes will be autodetected and the proper
+devices and other settings will be automatically be applied to tasks running
+on these compute nodes. You can force disable GPU and/or RDMA by setting
+`gpu` and `infiniband` properties to `false`.
 - Update Docker CE to 17.09.0
+- Update NC driver to 384.81 (CUDA 9.0 support)
 
 ## [2.9.6] - 2017-10-03
 ### Added
@@ -914,7 +921,8 @@ transfer is disabled
 #### Added
 - Initial release
 
-[Unreleased]: https://github.com/Azure/batch-shipyard/compare/2.9.6...HEAD
+[Unreleased]: https://github.com/Azure/batch-shipyard/compare/3.0.0a1...HEAD
+[3.0.0a1]: https://github.com/Azure/batch-shipyard/compare/2.9.6...3.0.0a1
 [2.9.6]: https://github.com/Azure/batch-shipyard/compare/2.9.5...2.9.6
 [2.9.5]: https://github.com/Azure/batch-shipyard/compare/2.9.4...2.9.5
 [2.9.4]: https://github.com/Azure/batch-shipyard/compare/2.9.3...2.9.4
